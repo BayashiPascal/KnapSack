@@ -1,0 +1,60 @@
+\section*{Introduction}
+
+KnapSack is a C library providing structures and functions to solve the 0/1 knapsack problem: given a set of item with a cost and value, which subset of items has the maximum total value while the total cost stays under a given budget.\\ 
+
+It uses the \begin{ttfamily}PBErr\end{ttfamily} and \begin{ttfamily}GSet\end{ttfamily} library.\\
+
+\section{Definitions}
+
+The definition of the knapsack problem and its solution can be found on Wikipedia:\\
+https://en.wikipedia.org/wiki/Knapsack\_problem
+
+\section{Interface}
+
+\begin{scriptsize}
+\begin{ttfamily}
+\verbatiminput{/home/bayashi/Coding/KnapSack/knapsack.h}
+\end{ttfamily}
+\end{scriptsize}
+
+\section{Code}
+
+\subsection{knapsack.c}
+
+\begin{scriptsize}
+\begin{ttfamily}
+\verbatiminput{/home/bayashi/Coding/KnapSack/knapsack.c}
+\end{ttfamily}
+\end{scriptsize}
+
+\subsection{knapsack-inline.c}
+
+\begin{scriptsize}
+\begin{ttfamily}
+\verbatiminput{/home/bayashi/Coding/KnapSack/knapsack-inline.c}
+\end{ttfamily}
+\end{scriptsize}
+
+\section{Makefile}
+
+\begin{scriptsize}
+\begin{ttfamily}
+\verbatiminput{/home/bayashi/Coding/KnapSack/Makefile}
+\end{ttfamily}
+\end{scriptsize}
+
+\section{Unit tests}
+
+\begin{scriptsize}
+\begin{ttfamily}
+\verbatiminput{/home/bayashi/Coding/KnapSack/main.c}
+\end{ttfamily}
+\end{scriptsize}
+
+\section{Unit tests output}
+
+\begin{scriptsize}
+\begin{ttfamily}
+\verbatiminput{/home/bayashi/Coding/KnapSack/unitTestRef.txt}
+\end{ttfamily}
+\end{scriptsize}
