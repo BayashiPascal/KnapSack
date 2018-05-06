@@ -12,7 +12,8 @@
 // ================ Functions implementation ====================
 
 // Create a new KnapSackPod with id 'id', cost 'cost' and value 'val'
-KnapSackPod* KnapSackPodCreate(int id, int cost, int val) {
+KnapSackPod* KnapSackPodCreate(const int id, const int cost, 
+  const int val) {
 #if BUILDMODE == 0
   if (cost <= 0) {
     GSetErr->_type = PBErrTypeInvalidArg;
@@ -55,7 +56,7 @@ void KnapSackPodFree(KnapSackPod** that) {
 // ================ Functions implementation ====================
 
 // Create a new KnapSack with the budget 'budget'
-KnapSack* KnapSackCreate(int budget) {
+KnapSack* KnapSackCreate(const int budget) {
 #if BUILDMODE == 0
   if (budget < 0) {
     GSetErr->_type = PBErrTypeInvalidArg;
@@ -90,7 +91,7 @@ void KnapSackFree(KnapSack** that) {
 
 // Select the best pods of the KnapSack 'that'
 // https://en.wikipedia.org/wiki/Knapsack_problem 
-void KSSelect(KnapSack* that) {
+void KSSelect(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -141,7 +142,7 @@ void KSSelect(KnapSack* that) {
 }
 
 // Get the cost of the KnapSack 'that' for currently selected pods
-int KSGetCost(KnapSack* that) {
+int KSGetCost(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -165,7 +166,7 @@ int KSGetCost(KnapSack* that) {
 }
 
 // Get the value of the KnapSack 'that' for currently selected pods
-int KSGetValue(KnapSack* that) {
+int KSGetValue(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;

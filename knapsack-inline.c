@@ -8,7 +8,7 @@
 #if BUILDMODE != 0
 inline
 #endif 
-int KSPGetId(KnapSackPod* that) {
+int KSPGetId(const KnapSackPod* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -23,7 +23,7 @@ int KSPGetId(KnapSackPod* that) {
 #if BUILDMODE != 0
 inline
 #endif 
-int KSPGetCost(KnapSackPod* that) {
+int KSPGetCost(const KnapSackPod* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -38,7 +38,7 @@ int KSPGetCost(KnapSackPod* that) {
 #if BUILDMODE != 0
 inline
 #endif 
-int KSPGetValue(KnapSackPod* that) {
+int KSPGetValue(const KnapSackPod* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -53,7 +53,7 @@ int KSPGetValue(KnapSackPod* that) {
 #if BUILDMODE != 0
 inline
 #endif 
-void KSPSetCost(KnapSackPod* that, int cost) {
+void KSPSetCost(KnapSackPod* const that, const int cost) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -73,7 +73,7 @@ void KSPSetCost(KnapSackPod* that, int cost) {
 #if BUILDMODE != 0
 inline
 #endif 
-void KSPSetValue(KnapSackPod* that, int val) {
+void KSPSetValue(KnapSackPod* const that, const int val) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -97,7 +97,7 @@ void KSPSetValue(KnapSackPod* that, int val) {
 #if BUILDMODE != 0
 inline
 #endif 
-int KSGetBudget(KnapSack* that) {
+int KSGetBudget(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -112,7 +112,7 @@ int KSGetBudget(KnapSack* that) {
 #if BUILDMODE != 0
 inline
 #endif 
-void KSSetBudget(KnapSack* that, int budget) {
+void KSSetBudget(KnapSack* const that, const int budget) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -132,7 +132,7 @@ void KSSetBudget(KnapSack* that, int budget) {
 #if BUILDMODE != 0
 inline
 #endif 
-GSetKnapSackPod* KSPods(KnapSack* that) {
+GSetKnapSackPod* KSPods(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -140,14 +140,14 @@ GSetKnapSackPod* KSPods(KnapSack* that) {
     PBErrCatch(GSetErr);
   }
 #endif 
-  return &(that->_pods);
+  return (GSetKnapSackPod*)&(that->_pods);
 }
 
 // Get the GSet of selected KnapSackPod of the KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-GSetKnapSackPod* KSSelectedPods(KnapSack* that) {
+GSetKnapSackPod* KSSelectedPods(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -155,7 +155,7 @@ GSetKnapSackPod* KSSelectedPods(KnapSack* that) {
     PBErrCatch(GSetErr);
   }
 #endif 
-  return &(that->_sel);
+  return (GSetKnapSackPod*)&(that->_sel);
 }
 
 // Get the 'iPod'-th KnapSackPod of selectable pods of the 
@@ -163,7 +163,7 @@ GSetKnapSackPod* KSSelectedPods(KnapSack* that) {
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetPod(KnapSack* that, int iPod) {
+KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -183,7 +183,7 @@ KnapSackPod* KSGetPod(KnapSack* that, int iPod) {
 #if BUILDMODE != 0
 inline
 #endif 
-int KSGetNbPod(KnapSack* that) {
+int KSGetNbPod(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -199,7 +199,7 @@ int KSGetNbPod(KnapSack* that) {
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetSelectedPod(KnapSack* that, int iPod) {
+KnapSackPod* KSGetSelectedPod(const KnapSack* const that, const int iPod) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -219,7 +219,7 @@ KnapSackPod* KSGetSelectedPod(KnapSack* that, int iPod) {
 #if BUILDMODE != 0
 inline
 #endif 
-int KSGetNbSelectedPod(KnapSack* that) {
+int KSGetNbSelectedPod(const KnapSack* const that) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;

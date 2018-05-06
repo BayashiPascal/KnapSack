@@ -29,7 +29,8 @@ typedef struct KnapSackPod {
 // ================ Functions declaration ====================
 
 // Create a new KnapSackPod with id 'id', cost 'cost' and value 'val'
-KnapSackPod* KnapSackPodCreate(int id, int cost, int val);
+KnapSackPod* KnapSackPodCreate(const int id, const int cost, 
+  const int val);
 
 // Free the memory used by the KnapSackPod 'that'
 void KnapSackPodFree(KnapSackPod** that);
@@ -38,31 +39,31 @@ void KnapSackPodFree(KnapSackPod** that);
 #if BUILDMODE != 0
 inline
 #endif 
-int KSPGetId(KnapSackPod* that);
+int KSPGetId(const KnapSackPod* const that);
 
 // Get the cost of the KnapSackPod 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-int KSPGetCost(KnapSackPod* that);
+int KSPGetCost(const KnapSackPod* const that);
 
 // Get the value of the KnapSackPod 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-int KSPGetValue(KnapSackPod* that);
+int KSPGetValue(const KnapSackPod* const that);
 
 // Set the cost of the KnapSackPod 'that' to 'cost'
 #if BUILDMODE != 0
 inline
 #endif 
-void KSPSetCost(KnapSackPod* that, int cost);
+void KSPSetCost(KnapSackPod* const that, const int cost);
 
 // Set the value of the KnapSackPod 'that' to 'val'
 #if BUILDMODE != 0
 inline
 #endif 
-void KSPSetValue(KnapSackPod* that, int val);
+void KSPSetValue(KnapSackPod* const that, const int val);
 
 // ---- 0-1 KnapSack
 
@@ -80,7 +81,7 @@ typedef struct KnapSack {
 // ================ Functions declaration ====================
 
 // Create a new KnapSack with the budget 'budget'
-KnapSack* KnapSackCreate(int budget);
+KnapSack* KnapSackCreate(const int budget);
 
 // Free the memory used by the KnapSack 'that'
 // The two GSetKnapSackPod are flushed but it's the responsibility 
@@ -91,61 +92,61 @@ void KnapSackFree(KnapSack** that);
 #if BUILDMODE != 0
 inline
 #endif 
-int KSGetBudget(KnapSack* that);
+int KSGetBudget(const KnapSack* const that);
 
 // Set the budget of the KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-void KSSetBudget(KnapSack* that, int budget);
+void KSSetBudget(KnapSack* const that, const int budget);
 
 // Get the GSet of selectable KnapSackPod of the KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-GSetKnapSackPod* KSPods(KnapSack* that);
+GSetKnapSackPod* KSPods(const KnapSack* const that);
 
 // Select the best pods of the KnapSack 'that'
 // https://en.wikipedia.org/wiki/Knapsack_problem 
-void KSSelect(KnapSack* that);
+void KSSelect(const KnapSack* const that);
 
 // Get the GSet of selected KnapSackPod of the KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-GSetKnapSackPod* KSSelectedPods(KnapSack* that);
+GSetKnapSackPod* KSSelectedPods(const KnapSack* const that);
 
 // Get the 'iPod'-th KnapSackPod of selectable pods of the 
 // KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetPod(KnapSack* that, int iPod);
+KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod);
 
 // Get the number of selectable pods of the KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-int KSGetNbPod(KnapSack* that);
+int KSGetNbPod(const KnapSack* const that);
 
 // Get the 'iPod'-th KnapSackPod of selected pods of the 
 // KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetSelectedPod(KnapSack* that, int iPod);
+KnapSackPod* KSGetSelectedPod(const KnapSack* const that, const int iPod);
 
 // Get the number of selected pods of the KnapSack 'that'
 #if BUILDMODE != 0
 inline
 #endif 
-int KSGetNbSelectedPod(KnapSack* that);
+int KSGetNbSelectedPod(const KnapSack* const that);
 
 // Get the cost of the KnapSack 'that' for currently selected pods
-int KSGetCost(KnapSack* that);
+int KSGetCost(const KnapSack* const that);
 
 // Get the value of the KnapSack 'that' for currently selected pods
-int KSGetValue(KnapSack* that);
+int KSGetValue(const KnapSack* const that);
 
 // ================ Inliner ====================
 
