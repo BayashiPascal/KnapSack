@@ -163,7 +163,7 @@ GSetKnapSackPod* KSSelectedPods(const KnapSack* const that) {
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod) {
+const KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -199,7 +199,8 @@ int KSGetNbPod(const KnapSack* const that) {
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetSelectedPod(const KnapSack* const that, const int iPod) {
+const KnapSackPod* KSGetSelectedPod(const KnapSack* const that, 
+  const int iPod) {
 #if BUILDMODE == 0
   if (that == NULL) {
     GSetErr->_type = PBErrTypeNullPointer;
@@ -228,5 +229,22 @@ int KSGetNbSelectedPod(const KnapSack* const that) {
   }
 #endif 
   return GSetNbElem(KSSelectedPods(that));
+}
+
+// Add a new KnapSackPod with cost 'cost' and value 'val' to the 
+// KnapSack 'that'
+#if BUILDMODE != 0
+inline
+#endif 
+void KSAdd(KnapSack* const that, const int cost, const int val) {
+#if BUILDMODE == 0
+  if (that == NULL) {
+    GSetErr->_type = PBErrTypeNullPointer;
+    sprintf(GSetErr->_msg, "'that' is null");
+    PBErrCatch(GSetErr);
+  }
+#endif 
+  KnapSackPod* pod = KnapSackPodCreate(KSGetNbPod(that), cost, val);
+  GSetAppend(&(that->_pods), pod);
 }
 

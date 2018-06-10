@@ -121,7 +121,7 @@ GSetKnapSackPod* KSSelectedPods(const KnapSack* const that);
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod);
+const KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod);
 
 // Get the number of selectable pods of the KnapSack 'that'
 #if BUILDMODE != 0
@@ -134,7 +134,8 @@ int KSGetNbPod(const KnapSack* const that);
 #if BUILDMODE != 0
 inline
 #endif 
-KnapSackPod* KSGetSelectedPod(const KnapSack* const that, const int iPod);
+const KnapSackPod* KSGetSelectedPod(const KnapSack* const that, 
+  const int iPod);
 
 // Get the number of selected pods of the KnapSack 'that'
 #if BUILDMODE != 0
@@ -147,6 +148,13 @@ int KSGetCost(const KnapSack* const that);
 
 // Get the value of the KnapSack 'that' for currently selected pods
 int KSGetValue(const KnapSack* const that);
+
+// Add a new KnapSackPod with cost 'cost' and value 'val' to the 
+// KnapSack 'that'
+#if BUILDMODE != 0
+inline
+#endif 
+void KSAdd(KnapSack* const that, const int cost, const int val);
 
 // ================ Inliner ====================
 

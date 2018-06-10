@@ -141,19 +141,16 @@ void UnitTestKnapSackSetGet() {
 
 void UnitTestKnapSackSelect() {
   KnapSack* ks = KnapSackCreate(15);
-  KnapSackPod* pods[5];
   int data[10] = {12, 4, 1, 2, 2, 2, 1, 1, 4, 10};
-  for (int i = 5; i--;) {
-    pods[i] = KnapSackPodCreate(i, data[2 * i], data[2 * i + 1]);
-    GSetAppend(KSPods(ks), pods[i]);
-  }
+  for (int i = 5; i--;)
+    KSAdd(ks, data[2 * i], data[2 * i + 1]);
   KSSelect(ks);
   if (KSGetNbSelectedPod(ks) != 4) {
     KnapSackErr->_type = PBErrTypeUnitTestFailed;
     sprintf(KnapSackErr->_msg, "KSSelect failed");
     PBErrCatch(KnapSackErr);
   }
-  int check[4] = {4, 3, 2, 1};
+  int check[4] = {0, 1, 2, 3};
   for (int i = KSGetNbSelectedPod(ks); i--;)
     if (KSPGetId(KSGetSelectedPod(ks, i)) != check[i]) {
       KnapSackErr->_type = PBErrTypeUnitTestFailed;
@@ -171,8 +168,6 @@ void UnitTestKnapSackSelect() {
     PBErrCatch(KnapSackErr);
   }
   KnapSackFree(&ks);
-  for (int i = 5; i--;)
-    KnapSackPodFree(pods + i);
   printf("UnitTestKnapSackSelect OK\n");
 }
 

@@ -83,7 +83,11 @@ void KnapSackFree(KnapSack** that) {
     // Nothing to do
     return;
   // Free memory
-  GSetFlush(&((*that)->_pods));
+  while (GSetNbElem(&((*that)->_pods))) {
+    KnapSackPod* pod = GSetPop(&((*that)->_pods));
+    free(pod);
+    pod = NULL;
+  }
   GSetFlush(&((*that)->_sel));
   free(*that);
   *that = NULL;
@@ -114,7 +118,7 @@ void KSSelect(const KnapSack* const that) {
     m[cost] = 0;
   // Calculate values in the array
   for (int iPod = 1; iPod <= KSGetNbPod(that); ++iPod) {
-    KnapSackPod* pod = KSGetPod(that, iPod - 1);
+    const KnapSackPod* pod = KSGetPod(that, iPod - 1);
     for (int cost = 0; cost <= KSGetBudget(that); ++cost) {
       if (KSPGetCost(pod) > cost) {
         m[iPod * b + cost] = m[(iPod - 1) * b + cost];
@@ -131,7 +135,7 @@ void KSSelect(const KnapSack* const that) {
   int cost = KSGetBudget(that);
   while (iPod > 0 && cost > 0) {
     if (m[iPod * b + cost] != m[(iPod - 1) * b + cost]) {
-      KnapSackPod* pod = KSGetPod(that, iPod - 1);
+      const KnapSackPod* pod = KSGetPod(that, iPod - 1);
       GSetPush(KSSelectedPods(that), pod);
       cost -= KSPGetCost(pod);
     }
