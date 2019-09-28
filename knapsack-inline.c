@@ -1,4 +1,4 @@
-// ============ KNAPSACK-INLINE.C ================
+// ============ KNAPSACK-static inline.C ================
 
 // ---- KnapSackPod
 
@@ -6,7 +6,7 @@
 
 // Get the id of the KnapSackPod 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 int KSPGetId(const KnapSackPod* const that) {
 #if BUILDMODE == 0
@@ -21,7 +21,7 @@ int KSPGetId(const KnapSackPod* const that) {
 
 // Get the cost of the KnapSackPod 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 int KSPGetCost(const KnapSackPod* const that) {
 #if BUILDMODE == 0
@@ -36,7 +36,7 @@ int KSPGetCost(const KnapSackPod* const that) {
 
 // Get the value of the KnapSackPod 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 int KSPGetValue(const KnapSackPod* const that) {
 #if BUILDMODE == 0
@@ -51,7 +51,7 @@ int KSPGetValue(const KnapSackPod* const that) {
 
 // Set the cost of the KnapSackPod 'that' to 'cost'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 void KSPSetCost(KnapSackPod* const that, const int cost) {
 #if BUILDMODE == 0
@@ -71,7 +71,7 @@ void KSPSetCost(KnapSackPod* const that, const int cost) {
 
 // Set the value of the KnapSackPod 'that' to 'val'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 void KSPSetValue(KnapSackPod* const that, const int val) {
 #if BUILDMODE == 0
@@ -95,7 +95,7 @@ void KSPSetValue(KnapSackPod* const that, const int val) {
 
 // Get the budget of the KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 int KSGetBudget(const KnapSack* const that) {
 #if BUILDMODE == 0
@@ -110,7 +110,7 @@ int KSGetBudget(const KnapSack* const that) {
 
 // Set the budget of the KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 void KSSetBudget(KnapSack* const that, const int budget) {
 #if BUILDMODE == 0
@@ -130,7 +130,7 @@ void KSSetBudget(KnapSack* const that, const int budget) {
 
 // Get the GSet of selectable KnapSackPod of the KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 GSetKnapSackPod* KSPods(const KnapSack* const that) {
 #if BUILDMODE == 0
@@ -145,7 +145,7 @@ GSetKnapSackPod* KSPods(const KnapSack* const that) {
 
 // Get the GSet of selected KnapSackPod of the KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 GSetKnapSackPod* KSSelectedPods(const KnapSack* const that) {
 #if BUILDMODE == 0
@@ -161,7 +161,7 @@ GSetKnapSackPod* KSSelectedPods(const KnapSack* const that) {
 // Get the 'iPod'-th KnapSackPod of selectable pods of the 
 // KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 const KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod) {
 #if BUILDMODE == 0
@@ -181,7 +181,7 @@ const KnapSackPod* KSGetPod(const KnapSack* const that, const int iPod) {
 
 // Get the number of selectable pods of the KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 int KSGetNbPod(const KnapSack* const that) {
 #if BUILDMODE == 0
@@ -197,7 +197,7 @@ int KSGetNbPod(const KnapSack* const that) {
 // Get the 'iPod'-th KnapSackPod of selected pods of the 
 // KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 const KnapSackPod* KSGetSelectedPod(const KnapSack* const that, 
   const int iPod) {
@@ -218,7 +218,7 @@ const KnapSackPod* KSGetSelectedPod(const KnapSack* const that,
 
 // Get the number of selected pods of the KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 int KSGetNbSelectedPod(const KnapSack* const that) {
 #if BUILDMODE == 0
@@ -234,7 +234,7 @@ int KSGetNbSelectedPod(const KnapSack* const that) {
 // Add a new KnapSackPod with cost 'cost' and value 'val' to the 
 // KnapSack 'that'
 #if BUILDMODE != 0
-inline
+static inline
 #endif 
 void KSAdd(KnapSack* const that, const int cost, const int val) {
 #if BUILDMODE == 0
